@@ -29,13 +29,13 @@ const Footer = ({ onChangeToggle }) => {
     <footer className="main-footer">
       <ul className="footer-content">
         <li>
-          <Link to="/">
+          <Link to="/Todo-Calendar-App">
             <HomeIcon />
             <p>메인</p>
           </Link>
         </li>
         <li>
-          <Link to="/calendar">
+          <Link to="/Todo-Calendar-App/calendar">
             <CalendarMonthIcon />
             <p>캘린더</p>
           </Link>

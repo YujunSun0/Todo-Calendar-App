@@ -67,7 +67,7 @@ function App() {
       <Header />
       <Routes>
         <Route
-          path="/"
+          path="/Todo-Calendar-App"
           element={
             <Home
               listData={listData}
@@ -83,7 +83,7 @@ function App() {
           }
         />
         <Route
-          path="/calendar"
+          path="/Todo-Calendar-App/calendar"
           element={<Schedule selectedData={selectedData} listData={listData} />}
         />
       </Routes>
