@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Todo-Calendar-App/static/css/main.75b6d07c.css",
-    "main.js": "/Todo-Calendar-App/static/js/main.b33292c3.js",
+    "main.js": "/Todo-Calendar-App/static/js/main.fda7bb2e.js",
     "static/media/GmarketSansTTFBold.ttf": "/Todo-Calendar-App/static/media/GmarketSansTTFBold.69428064ef8eee25be33.ttf",
     "static/media/GmarketSansTTFMedium.ttf": "/Todo-Calendar-App/static/media/GmarketSansTTFMedium.d4bac6b182bed73c9375.ttf",
     "static/media/style.less": "/Todo-Calendar-App/static/media/style.a8a6d66edd019c76370c.less",
     "index.html": "/Todo-Calendar-App/index.html",
     "main.75b6d07c.css.map": "/Todo-Calendar-App/static/css/main.75b6d07c.css.map",
-    "main.b33292c3.js.map": "/Todo-Calendar-App/static/js/main.b33292c3.js.map"
+    "main.fda7bb2e.js.map": "/Todo-Calendar-App/static/js/main.fda7bb2e.js.map"
   },
   "entrypoints": [
     "static/css/main.75b6d07c.css",
-    "static/js/main.b33292c3.js"
+    "static/js/main.fda7bb2e.js"
   ]
 }
