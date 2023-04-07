@@ -1,38 +1,479 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "GmarketSansMedium1";
+  src: url("./fonts/GmarketSansTTFBold.ttf") format("woff");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GmarketSansMedium2";
+  src: url("./fonts/GmarketSansTTFMedium.ttf") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  font-family: "GmarketSansMedium2";
+  padding-top: 55px;
+  height: 100vh;
+}
+
+.main {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* header */
+.main-header {
+  background-color: black;
+  font-family: "GmarketSansMedium1";
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-right: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 0.8px solid white;
+  z-index: 999;
+}
+
+.main-header > svg {
+  background-color: #292929;
+  font-size: 22px;
+  padding: 2px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.main-calendar {
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid white;
+}
+
+
+/* calender-header
+.main-calender-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.main-calender-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.main-calender-header-left > h4 {
+  margin-right: 10px;
+}
+
+.main-calender-header-left > svg {
+  color: black;
+  background-color: white;
+  font-size: 16px;
   text-align: center;
+  margin-right: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-calender-header-right {
+  display: flex;
+  align-items: center;
+  margin-right: 7px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-calender-header-right > svg {
+  margin-right: 6px;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-calender-header-right > p {
+  width: 35px;
+  background-color: #292929;
+  border-radius: 46%;
+  padding: 5px;
+  text-align: center;
+  font-size: 13px;
+} */
+
+/* .main-calender-content {
+  display: flex;
+  justify-content: center;
+}
+
+.main-calender-content > li {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.main-calender-content > li > p:first-child {
+  font-size: 12px;
+  color: rgba(166, 166, 166, 1);
+}
+
+.main-calender-content > li > p:last-child {
+  font-size: 13px;
+}
+
+.main-calender-content > li > svg {
+  color: gray;
+} */
+
+/* content-list */
+.main-content {
+  padding-bottom: 47px;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.main-content > li {
+  position: relative;
+  width: 90%;
+  height: 70px;
+  padding: 5px;
+  background-color: #262626;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border: 0.7px solid white;
+}
+
+.main-content-header {
+  width: 100%;
+  display: flex;
+}
+
+.checkbox > svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.more > svg {
+  font-size: 22px;
+  padding: 2px;
+  margin-right: 5px;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.main-content-header > p {
+  width: 280px;
+  border: none;
+  background-color: #262626;
   color: white;
+  border-radius: 15px;
+  font-size: 16px;
+  padding-left: 13px;
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+.main-content-header > span {
+  margin-left: 7px;
+  font-size: 12px;
 }
 
-@keyframes App-logo-spin {
+/* footer */
+.main-footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  border: 0.8px solid white;
+  z-index: 950;
+}
+
+.main-footer > ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-footer > ul > li > a{
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-footer > ul > li > a >  svg {
+  margin-bottom: 3px;
+}
+
+/* modal */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  width: 100%;
+  height: 320px;
+  z-index: 999;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  /* transform: translate(-50%, -50%); */
+  background-color: #262626;
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 30px;
+  transition: 1s;
+}
+
+.modal2-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal2 {
+  width: 100%;
+  height: 350px;
+  z-index: 999;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  /* transform: translate(-50%, -50%); */
+  background-color: #262626;
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 30px;
+  transition: 1s;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal2-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.modal2-button-left {
+  margin-right: 4px;
+}
+
+.modal2-button-left, .modal2-button-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #333333;
+  border-radius: 8px;
+  width: 180px;
+  height: 70px;
+}
+
+.modal2-button-left > svg {
+  margin-bottom: 5px;
+  color: #5a51f4;
+}
+
+.modal2-button-right > svg {
+  margin-bottom: 5px;
+  color: #e86060;
+}
+
+.modal2 > header > h2 {
+  text-align: center;
+  font-size: 18px;
+}
+
+.modal2-list {
+  margin-top: 15px;
+}
+
+.modal2-list-div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.modal2-list-div > svg {
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #5f71eb;
+  padding: 4.5px;
+}
+
+.slide-up {
+  /* 애니메이션 이름은 slide-up이며, 0.5초 동안 실행됩니다. */
+  animation: slide-up 0.5s;
+  /* 애니메이션 실행 방향을 위쪽으로 설정합니다. */
+  animation-fill-mode: forwards;
+  transition: 1s;
+}
+
+.slide-down {
+  animation: slide-down 1s;
+  /* 애니메이션 실행 방향을 위쪽으로 설정합니다. */
+  animation-fill-mode: backwards;
+  transition: 1s;
+}
+
+.modal > header > button,
+.modal2 > header > button {
+  position: absolute;
+  right: 30px;
+  top: 25px;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #353535;
+  color: white;
+  cursor: pointer;
+}
+
+.modal2-input {
+  display: flex;
+  justify-content: center;
+}
+
+.modal2 > header > input { 
+  font-family: "GmarketSansMedium2";
+  margin-top: -2px;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+  background-color: #262626;
+  color: white;
+  border: none;
+  border-bottom: 2px solid #9abdd6;
+}
+
+.modal-input {
+  margin-top: 20px;
+  width: 360px;
+  height: 40px;
+  border-radius: 7px;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  background-color: white;
+  padding-left: 10px;
+  font-size: 22px;
+}
+
+.modal > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal > div > button {
+  border: none;
+  width: 88%;
+  height: 30px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.dot {
+  position: absolute;
+  height: 5px;
+  width: 5px;
+  background-color: #f87171;
+  border-radius: 50%;
+  display: flex;
+  left: 0.3rem;
+  top: 0.3rem;
+}
+
+
+
+/* .modal 클래스를 가진 요소에 슬라이드 효과를 주기 위해 keyframes를 정의합니다. */
+@keyframes slide-up {
+  /* 0%에서는 translateY(100%)로 요소를 아래로 숨깁니다. */
+  0% {
+    transform: translateY(100%);
+  }
+
+  /* 100%에서는 translateY(0)으로 요소를 위로 올려서 보여줍니다. */
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* slide-down 이라는 이름의 애니메이션을 정의합니다. */
+@keyframes slide-down {
+  /* animation: slide-down 0.5s ease; */
+
+  /* 0%에서는 요소가 보이는 상태로 시작합니다. */
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 100%에서는 요소가 아래로 사라지는 효과를 줍니다. */
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+/* @keyframes mySlideIn {
   from {
-    transform: rotate(0deg);
+    transform: translateY(250px);
+    opacity: 0;
   }
+
   to {
-    transform: rotate(360deg);
+    transform: none;
+    opacity: 3;
   }
 }
+
+@keyframes mySlideOut {
+  from {
+    transform: translateY(-250px);
+    opacity: 0;
+  }
+
+  to {
+    transform: none;
+    opacity: 3;
+  }
+} */
+
