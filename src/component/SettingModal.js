@@ -94,7 +94,7 @@ const SettingModal = ({
               <CheckIcon />
               <p>수정하기</p>
             </div>
-            <div className="modal2-button-right">
+            <div className="modal2-button-right" onClick={onChangeListData}>
               <KeyboardReturnIcon />
               <p>돌아가기</p>
             </div>
