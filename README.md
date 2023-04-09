@@ -17,5 +17,6 @@ https://user-images.githubusercontent.com/120611048/230699930-d5d631ef-cd85-4440
 **캘린더 페이지**
 -  월 단위의 캘린더가 있어 일정을 간단하게 볼 수 있다. 일정의 글자수가 6이 넘으면 애니메이션 효과를 주어 읽을 수 있게 했습니다
 
+## ✅ 4/9 필터링 기능추가 
 
-
+<img width="492" alt="스크린샷 2023-04-10 오전 12 03 29" src="https://user-images.githubusercontent.com/120611048/230780528-e57e6db3-95f9-49af-b393-78310f44c729.png">
