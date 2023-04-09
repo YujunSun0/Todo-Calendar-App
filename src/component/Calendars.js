@@ -133,10 +133,10 @@ const Wrap = styled.div`
 
   @keyframes scroll {
     0% {
-      transform: translateX(30%);
+      transform: translateX(0%);
     }
     100% {
-      transform: translateX(-200%);
+      transform: translateX(-150%);
     }
   }
 `;
