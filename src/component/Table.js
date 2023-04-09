@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-// import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import "../Table.css";
 
@@ -66,14 +66,32 @@ function Calendar({ setNowDate, listData }) {
                   >
                     <CheckBoxOutlineBlankIcon />
                     <span className="count">
-                      {
-                        listData.filter((el) => {
-                          return (
-                            el.month === +date.format("M") &&
-                            el.date === +date.format("D")
-                          );
-                        }).length
-                      }
+                      {listData.filter((el) => {
+                        return (
+                          el.month === +date.format("M") &&
+                          el.date === +date.format("D")
+                        );
+                      }).length === 0 ? (
+                        "0"
+                      ) : listData
+                          .filter((el) => {
+                            return (
+                              el.month === +date.format("M") &&
+                              el.date === +date.format("D")
+                            );
+                          })
+                          .filter((el) => el.done !== true).length === 0 ? (
+                        <CheckBoxIcon />
+                      ) : (
+                        listData
+                          .filter((el) => {
+                            return (
+                              el.month === +date.format("M") &&
+                              el.date === +date.format("D")
+                            );
+                          })
+                          .filter((el) => el.done !== true).length
+                      )}
                     </span>
                     <td key={index}>{date.format("D")}</td>
                   </div>

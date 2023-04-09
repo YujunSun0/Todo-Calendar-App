@@ -23,14 +23,6 @@ const Main = ({
   // const [data, setData] = useState({});
   const [nowDate, setNowDate] = useState([]); // 테이블에서 날짜를 클릭하면, 그 날의 month, date를 가져와서 해당 날짜의 리스트만 보여주기 위한 상태
 
-  console.log(
-    listData
-      .filter((el) => {
-        return el.month === nowDate[0] && el.date === nowDate[1];
-      })
-      .filter((el) => el.done === true)
-  );
-
   useEffect(() => {
     setNowDate([new Date().getMonth() + 1, new Date().getDate()]);
     // setData({});
@@ -97,134 +89,147 @@ const Main = ({
   return (
     <div className="main">
       <Table setNowDate={setNowDate} listData={listData} />
-      <h3 className="list-h3">완료</h3>
-      <ul className="main-content">
-        {listData.length === 0 ||
-        listData
-          .filter((el) => el.month === nowDate[0] && el.date === nowDate[1])
-          .filter((el) => el.done === true).length === 0 ? (
-          <div>완료 된 일정이 없습니다.</div>
-        ) : (
-          listData
-            .filter((el) => {
+      {listData.filter((el) => {
+        return el.month === nowDate[0] && el.date === nowDate[1];
+      }).length === 0 ? (
+        <h3 className="not-list">일정이 없습니다.</h3>
+      ) : (
+        <>
+          {" "}
+          <h3 className="list-header">{`일정 : ${
+            listData.filter((el) => {
               return el.month === nowDate[0] && el.date === nowDate[1];
-            })
-            .filter((el) => {
-              return el.done === true;
-            })
-            .map((list) => {
-              return (
-                <li
-                  key={list.id}
-                  onClick={() => {
-                    onChangeMore();
-                    onSaveData(list);
-                  }}
-                >
-                  <header className="main-content-header">
-                    <div
-                      className="checkbox"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onClickCheck(list.id);
+            }).length
+          }개`}</h3>
+          <h3 className="list-h3">완료</h3>
+          <ul className="main-content">
+            {listData
+              .filter((el) => el.month === nowDate[0] && el.date === nowDate[1])
+              .filter((el) => el.done === true).length === 0 ? (
+              <div>완료 된 일정이 없습니다.</div>
+            ) : (
+              listData
+                .filter((el) => {
+                  return el.month === nowDate[0] && el.date === nowDate[1];
+                })
+                .filter((el) => {
+                  return el.done === true;
+                })
+                .map((list) => {
+                  return (
+                    <li
+                      key={list.id}
+                      onClick={() => {
+                        onChangeMore();
+                        onSaveData(list);
                       }}
                     >
-                      {list.done ? (
-                        <CheckBoxIcon />
-                      ) : (
-                        <CheckBoxOutlineBlankIcon />
+                      <header className="main-content-header">
+                        <div
+                          className="checkbox"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onClickCheck(list.id);
+                          }}
+                        >
+                          {list.done ? (
+                            <CheckBoxIcon />
+                          ) : (
+                            <CheckBoxOutlineBlankIcon />
+                          )}
+                        </div>
+                        <p>{list.text}</p>
+                        <span>{`${list.month}월 ${list.date}일`}</span>
+                        <div className="more">
+                          <MoreHorizIcon />
+                        </div>
+                      </header>
+                      {isMore && (
+                        <SettingModal
+                          onChangeMore={onChangeMore}
+                          data={data}
+                          cleanData={cleanData}
+                          onChangeListData={onChangeListData}
+                          editing={editing}
+                          onClickCloseBtn={onClickCloseBtn}
+                          onChangeListVal={onChangeListVal}
+                          handleKeyDown={handleKeyDown}
+                          onDeleteListData={onDeleteListData}
+                          listData={listData}
+                          setListData={setListData}
+                        />
                       )}
-                    </div>
-                    <p>{list.text}</p>
-                    <span>{`${list.month}월 ${list.date}일`}</span>
-                    <div className="more">
-                      <MoreHorizIcon />
-                    </div>
-                  </header>
-                  {isMore && (
-                    <SettingModal
-                      onChangeMore={onChangeMore}
-                      data={data}
-                      cleanData={cleanData}
-                      onChangeListData={onChangeListData}
-                      editing={editing}
-                      onClickCloseBtn={onClickCloseBtn}
-                      onChangeListVal={onChangeListVal}
-                      handleKeyDown={handleKeyDown}
-                      onDeleteListData={onDeleteListData}
-                      listData={listData}
-                      setListData={setListData}
-                    />
-                  )}
-                </li>
-              );
-            })
-        )}
-      </ul>
-      <h3 className="list-h3">미완료</h3>
-      <ul className="main-content">
-        {listData.length === 0 ||
-        listData
-          .filter((el) => el.month === nowDate[0] && el.date === nowDate[1])
-          .filter((el) => el.done !== true).length === 0 ? (
-          <div>일정을 모두 완료했습니다!</div>
-        ) : (
-          listData
-            .filter((el) => {
-              return el.month === nowDate[0] && el.date === nowDate[1];
-            })
-            .filter((el) => {
-              return el.done !== true;
-            })
-            .map((list) => {
-              return (
-                <li
-                  key={list.id}
-                  onClick={() => {
-                    onChangeMore();
-                    onSaveData(list);
-                  }}
-                >
-                  <header className="main-content-header">
-                    <div
-                      className="checkbox"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onClickCheck(list.id);
+                    </li>
+                  );
+                })
+            )}
+          </ul>
+          <h3 className="list-h3">미완료</h3>
+          <ul className="main-content">
+            {listData
+              .filter((el) => el.month === nowDate[0] && el.date === nowDate[1])
+              .filter((el) => el.done !== true).length === 0 ? (
+              <div>일정을 모두 완료했습니다!</div>
+            ) : (
+              listData
+                .filter((el) => {
+                  return el.month === nowDate[0] && el.date === nowDate[1];
+                })
+                .filter((el) => {
+                  return el.done !== true;
+                })
+                .map((list) => {
+                  return (
+                    <li
+                      key={list.id}
+                      onClick={() => {
+                        onChangeMore();
+                        onSaveData(list);
                       }}
                     >
-                      {list.done ? (
-                        <CheckBoxIcon />
-                      ) : (
-                        <CheckBoxOutlineBlankIcon />
+                      <header className="main-content-header">
+                        <div
+                          className="checkbox"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onClickCheck(list.id);
+                          }}
+                        >
+                          {list.done ? (
+                            <CheckBoxIcon />
+                          ) : (
+                            <CheckBoxOutlineBlankIcon />
+                          )}
+                        </div>
+                        <p>{list.text}</p>
+                        <span>{`${list.month}월 ${list.date}일`}</span>
+                        <div className="more">
+                          <MoreHorizIcon />
+                        </div>
+                      </header>
+                      {isMore && (
+                        <SettingModal
+                          onChangeMore={onChangeMore}
+                          data={data}
+                          cleanData={cleanData}
+                          onChangeListData={onChangeListData}
+                          editing={editing}
+                          onClickCloseBtn={onClickCloseBtn}
+                          onChangeListVal={onChangeListVal}
+                          handleKeyDown={handleKeyDown}
+                          onDeleteListData={onDeleteListData}
+                          listData={listData}
+                          setListData={setListData}
+                        />
                       )}
-                    </div>
-                    <p>{list.text}</p>
-                    <span>{`${list.month}월 ${list.date}일`}</span>
-                    <div className="more">
-                      <MoreHorizIcon />
-                    </div>
-                  </header>
-                  {isMore && (
-                    <SettingModal
-                      onChangeMore={onChangeMore}
-                      data={data}
-                      cleanData={cleanData}
-                      onChangeListData={onChangeListData}
-                      editing={editing}
-                      onClickCloseBtn={onClickCloseBtn}
-                      onChangeListVal={onChangeListVal}
-                      handleKeyDown={handleKeyDown}
-                      onDeleteListData={onDeleteListData}
-                      listData={listData}
-                      setListData={setListData}
-                    />
-                  )}
-                </li>
-              );
-            })
-        )}
-      </ul>
+                    </li>
+                  );
+                })
+            )}
+          </ul>
+        </>
+      )}
+
       {isToggle && (
         <Modal
           onChangeToggle={onChangeToggle}

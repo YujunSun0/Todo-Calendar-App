@@ -49,6 +49,11 @@ text-align: center;
     padding: 0 13px;
 }
 
+.not-list {
+    text-align: center;
+    margin-top: 10px;
+}
+
 
 .check {
     display: flex;
@@ -70,4 +75,10 @@ text-align: center;
     top: 5.5px;
     right: 1.95rem;
     
+}
+
+.count > svg {
+    position: absolute;
+    top: -5px;
+    right: -8px;
 }

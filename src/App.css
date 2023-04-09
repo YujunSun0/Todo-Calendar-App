@@ -414,6 +414,13 @@ body {
   margin: 10px;
 }
 
+.list-header {
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+
 .dot {
   position: absolute;
   height: 5px;
