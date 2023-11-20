@@ -8,7 +8,7 @@
 
 <br />
 
-**초기 구현화면 ( 업데이트 되면 아래에 기능 설명과 함께 구현화면 추가예정 )**
+**초기 구현화면**
 
 https://user-images.githubusercontent.com/120611048/230699930-d5d631ef-cd85-4440-adcc-008c0638eada.mov
 
